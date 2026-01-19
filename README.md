@@ -1,96 +1,143 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/8gPRGAIg)
-# Práctica 4.2: Programación orientada a objetos I
+# Título de la Actividad: Programación Orientada a Objetos (POO)
 
-Apóyate en los siguientes recursos para realizar la práctica:
+## Identificación de la Actividad
+- **ID de la Actividad:** 4.1 POO
+- **Módulo:** Programación 
+- **Unidad de Trabajo:** Unidad 4 - Introducción a la Programación Orientada a Objetos
+- **Fecha de Creación:** 19-01
+- **Fecha de Entrega:** 19-01
 
-[U4: 2. POO I](https://revilofe.github.io/section1/u04/practica/PROG-U4.-Practica002/)
-
-> ATENCIÓN: DURANTE LA DOCUMENTACIÓN DE LA PRÁCTICA, ELIMINA TODO AQUELLO QUE NO APLIQUE. PEEEEEEEROOOOOOO, ANTES DE ELIMINAR ALGO, PIENSA SI APLICA O NO.
+## Alumno(s)
+- **Nombre y Apellidos:** Antonio Manuel Pérez Gómez
+- **Correo electrónico:** apergom459w@g.educaand.es
+- **Iniciales del Alumno/Grupo:** AMPG
 
 ---
 
-# Título de la Actividad
-
-## Identificación de la Actividad
-
-- **ID de la Actividad:** [ID de la actividad]
-- **Módulo:** [Nombre del módulo] (`PROG`, `IS`, `EDES`, etc.)
-- **Unidad de Trabajo:** [Número y nombre de la unidad de trabajo]
-- **Fecha de Creación:** [Fecha de creación]
-- **Fecha de Entrega:** [Fecha de entrega]
-- **Alumno(s):**
-  - **Nombre y Apellidos:** [Nombre y Apellidos del alumno o integrantes del grupo]
-  - **Correo electrónico:** [Correo electrónico g.educaand.es]
-  - **Iniciales del Alumno/Grupo:** [Iniciales del alumno o del grupo]
-
 ## Descripción de la Actividad
+Esta actividad tiene como objetivo implementar diversas prácticas que refuercen los conceptos básicos de la programación orientada a objetos usando Kotlin. A través de los ejercicios, se desarrollarán capacidades como la creación de clases, encapsulación, validaciones y operaciones específicas sobre atributos y objetos.
 
-[Descripción detallada de la actividad, objetivos, y contexto necesario para comprenderla. Explicar en qué consiste la actividad y qué se espera que el alumno desarrolle o implemente.]
+## Lista de Ejercicios
+### 1. **Clase Coche**
+- La clase modela un objeto **Coche** que incluye atributos como `marca`, `modelo`, `caballos`, `puertas`, `matrícula` y un campo opcional `color` que tiene un setter con validación.
+- **Validaciones:** 
+  - `marca` y `modelo` no pueden estar vacíos.
+  - `caballos` deben estar en el rango 70-700.
+  - `puertas` deben estar entre 3 y 5.
+  - La matrícula debe tener una longitud exacta de 7 caracteres.
+- **Diseño:** Constructor primario con inicialización y método `toString` sobrescrito.
+- **Ejemplo de uso:** Crear un coche, asignar el color y mostrar su información.
+
+**Archivo asociado:** `Coche.kt`
+
+---
+
+### 2. **Clase Persona**
+- Modela una **Persona** con atributos como `nombre`, `peso` y `altura`, con la capacidad de calcular su índice de masa corporal (**IMC**).
+- **Características:**
+  - Getter y setter para garantizar validez de la altura.
+  - Constructor secundario para inicializar el objeto.
+  - Método `calcularDescripcion` devuelve descripciones del estado del IMC:
+    - Bajo peso, saludable, sobrepeso u obesidad.
+  - Método `equals` sobrescrito para comparar objetos.
+- **Ejemplo de uso:** Crear varias personas y calcular su IMC y descripción.
+
+**Archivo asociado:** `Persona.kt`
+
+---
+
+### 3. **Clase Rectángulo**
+- Representa un **Rectángulo** con base y altura, permitiendo calcular área y perímetro.
+- **Validaciones:**
+  - Base y altura deben ser números positivos.
+- **Diseño:** Métodos `area` y `perimetro` personalizados y un `toString` para representación.
+- **Ejemplo de uso:** Crear una lista de rectángulos, calcular y mostrar sus áreas y perímetros.
+
+**Archivo asociado:** `Rectangulo.kt`
+
+---
+
+### 4. **Clase Tiempo**
+- Modela un **Tiempo** con horas, minutos y segundos, que permite realizar incrementos entre tiempos.
+- **Características:**
+  - Validación en el rango de valores: 
+    - Horas [0-23], minutos y segundos [0-59].
+  - Métodos internos como `aSegundos` para conversiones y `desdeSegundos` para ajustes.
+  - Método público `incrementar` que añade tiempo y valida que no exceda 23:59:59.
+- **Ejemplo de uso:** Crear dos objetos `Tiempo`, sumarlos y verificar su validez.
+
+**Archivo asociado:** `Tiempo.kt`
+
+---
 
 ## Instrucciones de Compilación y Ejecución
 
-1. **Requisitos Previos:**
+### Requisitos Previos
+- **Lenguaje:** Kotlin (versión [especificar])
+- **Dependencias:** No necesita librerías externas.
+- **Entorno recomendado:** IntelliJ IDEA.
 
-   - [Lenguaje de programación y versión]
-   - [Entorno de desarrollo o dependencias necesarias]
-2. **Pasos para Compilar el Código:**
+### Pasos para Compilar
+Para compilar los programas, usa el comando:
+```bash
+kotlinc <archivo>.kt -include-runtime -d programa.jar
+```
 
-   ```bash
-   [Comando para compilar el código]
-   ```
-3. **Pasos para Ejecutar el Código:**
+### Pasos para Ejecutar
+```bash
+java -jar programa.jar
+```
 
-   ```bash
-   [Comando para ejecutar la aplicación]
-   ```
-4. **Ejecución de Pruebas:**
+---
 
-   ```bash
-   [Comandos para ejecutar pruebas, si las hubiera]
-   ```
+## Ejemplos de Ejecución
 
-## Desarrollo de la Actividad
+### **Ejemplo para `Coche`**
+#### Entrada 1:
+```kotlin
+val coche = Coche("Ford", "Focus", 120, 5, "1234567")
+coche.color = "Rojo"
+println(coche)
+```
+#### Salida:
+```text
+Coche(marca='Ford', modelo='Focus', caballos=120, puertas=5, matricula='1234567', color=Rojo)
+```
 
-### Descripción del Desarrollo
+---
 
-[Explicación de cómo se ha abordado el desarrollo de la actividad, incluyendo las decisiones de diseño, estructura del código y enfoque de resolución de problemas. Se recomienda adjuntar diagramas o capturas de pantalla si es necesario.]
+### **Ejemplo para `Tiempo`**
+#### Entrada 2:
+```kotlin
+val tiempo1 = Tiempo(23, 59, 50)
+val incremento = Tiempo(0, 0, 15)
+tiempo1.incrementar(incremento)
+```
+#### Salida:
+```text
+Tiempo incrementado: 0h 0m 5s
+```
 
-### Código Fuente
+---
 
-[Aquí se incluirá un enlace directo a los archivos de código fuente en el repositorio, por ejemplo, si se está usando GitHub: `src/main.kt` o algún enlace directo.]
+### **Ejemplo para `Rectángulo`**
+#### Entrada 3:
+```kotlin
+val rectangulo = Rectangulo(5.0, 10.0)
+println("Área: ${rectangulo.area()}, Perímetro: ${rectangulo.perimetro()}")
+```
+#### Salida:
+```text
+Área: 50.0, Perímetro: 30.0
+```
 
-[Si hay varios ejercicios, habrá una documentación, por cada uno de los ejercicios.]
-[Por cada ejercicio, habrá enlaces embebidos de código a las clases principales y programa principal `main` ]
-
-### Ejemplos de Ejecución
-
-- **Entrada 1:** Descripción de la entrada y valor de prueba.
-- **Salida Esperada 1:** Explicación de la salida esperada y el resultado de la prueba.
-
-### Resultados de Pruebas
-
-[Aquí se detallará cómo se ha verificado la funcionalidad del código, incluyendo resultados de pruebas automatizadas o manuales, en caso de que las haya.]
-
-## Documentación Adicional
-
-- **Manual de Usuario:** [Enlace a la documentación del usuario, si existe]
-- **Autorización de Permisos:** Verificar que el profesor tenga permisos de lectura en el repositorio para revisar el código.
-
-## Conclusiones
-
-[Resumen de las conclusiones alcanzadas al desarrollar la actividad, las lecciones aprendidas, y posibles mejoras que se puedan implementar en futuras entregas.]
+---
 
 ## Referencias y Fuentes
+- [Documentación oficial de Kotlin](https://kotlinlang.org)
+- Apuntes de clase y recursos proporcionados.
 
-[Aquí se listarán las fuentes consultadas para el desarrollo de la actividad, tales como documentación oficial, artículos, o cualquier recurso externo relevante.]
+---
 
-### Notas Adicionales:
-
-1. **Nombres de Archivos y Repositorios:**
-   - Asegúrate de que el nombre del archivo o repositorio siga la estructura definida: `XXX-idActividad-Iniciales`.
-2. **Permisos:**
-   - Verifica que el profesor tenga los permisos necesarios para acceder al repositorio o documento.
-3. **Formato:**
-   - Si se entrega en formato PDF o Google Docs, asegúrate de cumplir con el mínimo y máximo de folios establecidos.
-4. **Compilación y Ejecución:**
-   - Detalla claramente cómo compilar y ejecutar el código, incluyendo las instrucciones en el archivo `README.md`.
+## Conclusiones
+Los ejercicios permiten profundizar en los conceptos de la POO como encapsulación, validaciones y diseño orientado a objetos. Cada clase incluye validaciones y métodos representativos que simulan problemas cotidianos a resolver con lógica de programación, proporcionando un aprendizaje completo e integral.
